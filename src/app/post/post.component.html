@@ -1,0 +1,14 @@
+<h1>Mat Paginator</h1>
+
+<div class="styling" *ngFor="let post of pageSlice">
+  {{ post.id }} - {{ post.title }}
+</div>
+
+<mat-paginator
+  [length]="obtainedPost.length"
+  [pageSize]="5"
+  [pageSizeOptions]="[5, 10, 20]"
+  aria-label="Select page"
+  (page)="onPageChange($event)"
+>
+</mat-paginator>
