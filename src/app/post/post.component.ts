@@ -8,8 +8,8 @@ import { ApiService, Posts } from './api.service';
   styleUrls: ['./post.component.css'],
 })
 export class PostComponent implements OnInit {
-  obtainedPost: Posts[] = [];
-  pageSlice!: Posts[];
+  obtainedPost: Posts[] = []; //to store all the received posts
+  pageSlice!: Posts[]; //to store only the required number of posts to be displayed
 
   constructor(private service: ApiService) {}
 
@@ -20,7 +20,7 @@ export class PostComponent implements OnInit {
   getApiData() {
     this.service.getData().subscribe((data: any) => {
       this.obtainedPost = data;
-      this.pageSlice = this.obtainedPost.slice(0, 5);
+      this.pageSlice = this.obtainedPost.slice(0, 5); //To initially store 5 items
     });
   }
 
